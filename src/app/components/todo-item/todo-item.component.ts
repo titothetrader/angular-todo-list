@@ -31,8 +31,6 @@ export class TodoItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges) {}
-
   completeTask(): void {
     this.complete.emit(this.todo.task);
   }

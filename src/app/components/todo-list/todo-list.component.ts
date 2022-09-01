@@ -12,6 +12,9 @@ export class TodoListComponent implements OnInit {
 
   todoList: ToDo[] = [];
 
+  filteredIndexes: number[] = [];
+  filteredList: ToDo[] = [];
+
   completedTodos: ToDo[] = [];
 
   constructor() {
@@ -53,11 +56,27 @@ export class TodoListComponent implements OnInit {
     this.todoList.splice(index, 1);
   }
 
-  completeTodo(todo: string): void {
+  completeTodo(todo: string, i: number): void {
     let tempTodo = {
       task: todo,
-      completed: true,
+      completed: false,
     };
+    console.log(this.todoList[i]);
+    this.todoList[i].completed = !this.todoList[i].completed;
+
     this.completedTodos = [...this.completedTodos, tempTodo];
+  }
+
+  searchList(search: string) {
+    this.filteredIndexes = [];
+    if (search === '') {
+      console.log('search empty');
+    } else {
+      this.todoList.forEach((todo, i) => {
+        !todo.task.toLowerCase().includes(search.toLowerCase()) &&
+          this.filteredIndexes.push(i);
+      });
+      // console.log(this.filteredIndexes);
+    }
   }
 }

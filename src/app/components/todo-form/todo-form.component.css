@@ -1,0 +1,7 @@
+.form {
+  @apply flex flex-col bg-opacity-20 mt-5 backdrop-blur-lg rounded drop-shadow-lg;
+}
+
+.subtitle {
+  @apply mt-5;
+}

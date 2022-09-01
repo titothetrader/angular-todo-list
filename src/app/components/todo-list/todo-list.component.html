@@ -1,22 +1,31 @@
-<h1 class="text-3xl font-bold underline">{{ title }}</h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let todo of todoList; index as i">
-      <td>{{ i + 1 }}</td>
-      <td>
-        <todo-item
-          [todo]="todo"
-          (complete)="completeTodo($event)"
-          (remove)="removeTodo($event)"
-        ></todo-item>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="todoList frostedGlass">
+  <h1 class="title">{{ title }}</h1>
+  <app-search (search)="searchList($event)"></app-search>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let todo of todoList; index as i"
+        class="itemRow"
+        [class]="todo.completed ? 'itemCompleted' : ''"
+        [ngClass]="filteredIndexes.includes(i) ? 'hide' : ''"
+        [id]="'row' + i"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>
+          <todo-item
+            [todo]="todo"
+            (complete)="completeTodo($event, i)"
+            (remove)="removeTodo($event)"
+          ></todo-item>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<todo-form (save)="addTodo($event)"></todo-form>
+  <todo-form (save)="addTodo($event)"></todo-form>
+</div>

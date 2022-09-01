@@ -1,0 +1,3 @@
+.mainContainer {
+  @apply flex justify-center text-center pt-[10vh];
+}

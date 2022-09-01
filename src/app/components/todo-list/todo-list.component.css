@@ -1,0 +1,15 @@
+.todoList {
+  @apply flex justify-center flex-col w-[50vw] p-5;
+}
+
+.itemRow:hover {
+  @apply bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg;
+}
+
+.itemCompleted {
+  @apply bg-gray-400 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg line-through;
+}
+
+.title {
+  @apply text-violet-500 text-3xl font-bold p-2 backdrop-blur-lg rounded drop-shadow-lg;
+}

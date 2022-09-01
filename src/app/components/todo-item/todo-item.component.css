@@ -1,0 +1,16 @@
+.item {
+  @apply flex justify-between p-2;
+}
+
+.completeBtn {
+  color: white;
+  @apply bg-pink-500 rounded pl-2 pr-2;
+}
+
+.completeBtn:hover {
+  @apply bg-pink-300 backdrop-blur-lg drop-shadow-lg;
+}
+
+.disabledBtn {
+  @apply bg-gray-300 backdrop-blur-lg drop-shadow-lg;
+}

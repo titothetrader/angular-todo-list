@@ -1,7 +1,8 @@
 <div>
-  <form #todoForm="ngForm" (ngSubmit)="submitTask()">
+  <form #todoForm="ngForm" (ngSubmit)="submitTask()" class="form">
+    <h2 class="subtitle">Add Another Task</h2>
     <mat-form-field appearance="fill">
-      <mat-label>Task:</mat-label>
+      <mat-label>Task</mat-label>
       <input
         matInput
         type="text"
